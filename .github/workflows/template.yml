@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Print String
         run: |
-          echo "Username is ${{ inputs.username }} and password is ${{ secrets.password }} And token is ${{ secrets.token }}"
+          echo Username is ${{ inputs.username }} and password is ${{ secrets.password }} And token is ${{ secrets.token }}
 
       - name: Dekh sappe
         env:
