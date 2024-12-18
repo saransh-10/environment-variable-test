@@ -12,12 +12,12 @@ jobs:
     uses: saransh-10/environment-variable-test/.github/workflows/template.yml@main
     with:
       environment: dev
-      username: ${{ env.USER }}
+      username: ${{ vars.USER }}
     secrets: inherit
   uat:
     name: uat string print
     uses: saransh-10/environment-variable-test/.github/workflows/template.yml@main
     with:
       environment: uat
-      username: ${{ env.USER }}
+      username: ${{ vars.USER }}
     secrets: inherit
