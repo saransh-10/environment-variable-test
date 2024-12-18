@@ -29,11 +29,14 @@ jobs:
           echo "Token: ${{ secrets.token }}"
 
       - name: Debug with Env Variables
-        env:
-          USERNAME: ${{ vars.user }}
-          PASSWORD: ${{ secrets.password }}
-          TOKEN: ${{ secrets.token }}
+        # env:
+        #   USERNAME: ${{ vars.user }}
+        #   PASSWORD: ${{ secrets.password }}
+        #   TOKEN: ${{ secrets.token }}
         run: |
+          echo "USERNAME=${{ vars.user }}" >> $GITHUB_ENV
+          echo "PASSWORD=${{ secrets.password }}" >> $GITHUB_ENV
+          echo "TOKEN=${{ secrets.token }}" >> $GITHUB_ENV
           echo "Env Variables:"
           echo "Username: $USERNAME" > file1
           cat file1
@@ -41,3 +44,4 @@ jobs:
           cat file2
           echo "Token: $TOKEN" > file3
           cat file3
+          
