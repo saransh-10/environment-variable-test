@@ -32,12 +32,13 @@ jobs:
           echo "Token: ${{ secrets.token }}"
 
       - name: Debug with Env Variables
+        env:
+          USERNAME: ${{ inputs.username }}
+          PASSWORD: ${{ secrets.password }}
+          TOKEN: ${{ secrets.token }}
         run: |
           echo "Env Variables:"
           echo "Username is $USERNAME"
           echo "Password is $PASSWORD"
           echo "Token is $TOKEN"
-        env:
-          USERNAME: ${{ inputs.username }}
-          PASSWORD: ${{ secrets.password }}
-          TOKEN: ${{ secrets.token }}
+        
