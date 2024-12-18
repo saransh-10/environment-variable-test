@@ -13,11 +13,15 @@ jobs:
     with:
       environment: dev
       username: ${{ vars.user }}
-    secrets: inherit
+      password: ${{ secrets.password }}
+      token: ${{ secrets.token }}
+    # secrets: inherit
   uat:
     name: uat string print
     uses: saransh-10/environment-variable-test/.github/workflows/template.yml@main
     with:
       environment: uat
       username: ${{ vars.user }}
-    secrets: inherit
+      password: ${{ secrets.password }}
+      token: ${{ secrets.token }}
+    # secrets: inherit
