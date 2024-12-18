@@ -24,7 +24,7 @@ jobs:
       - name: Print Inputs and Secrets
         run: |
           echo "Inputs:"
-          echo "Username: ${{ inputs.username }}"
+          echo "Username: ${{ inputs.user }}"
           echo "Environment: ${{ inputs.environment }}"
           echo ""
           echo "Secrets:"
