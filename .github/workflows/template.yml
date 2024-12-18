@@ -25,13 +25,14 @@ jobs:
           echo Username is ${{ inputs.username }} and password is ${{ secrets.password }} And token is ${{ secrets.token }}
 
       - name: Dekh sappe
-        env:
-          USERNAME: ${{ inputs.username }}
-          PASSWORD: ${{ secrets.password }}
-          TOKEN: ${{ secrets.token }}
         run: |
           echo "Username is $USERNAME"
           echo "Password is $PASSWORD"
           echo "Token is $TOKEN"
+        env:
+          USERNAME: ${{ inputs.username }}
+          PASSWORD: ${{ secrets.password }}
+          TOKEN: ${{ secrets.token }}
+        
         
 
