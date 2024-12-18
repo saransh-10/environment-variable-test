@@ -8,13 +8,16 @@ on:
       environment:
         required: true
         type: string
+      username:
+        required: true
+        type: string
 jobs:
   print:
-    name: print username & password
+    name: Print Username & Password
     runs-on: ubuntu-latest
     environment:
-      name: ${{ inputs.environment}}
+      name: ${{ inputs.environment }}
     steps:
-      - name: print string
+      - name: Print String
         run: |
-          echo username is ${{ vars.username }} password is ${{ secrets.password }}
+          echo "Username is ${{ vars.username }} and password is ${{ secrets.password }}"
