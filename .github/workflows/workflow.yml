@@ -6,6 +6,8 @@ on:
     branches:
       - main
   workflow_dispatch:
+env:
+  user: ${{ vars.USER }}
 jobs:
   dev:
     name: dev string print
