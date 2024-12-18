@@ -13,6 +13,7 @@ on:
       username:
         required: true
         type: string
+
 jobs:
   print:
     name: Print Username & Password
@@ -20,12 +21,19 @@ jobs:
     environment:
       name: ${{ inputs.environment }}
     steps:
-      - name: Print String
+      - name: Print Inputs and Secrets
         run: |
-          echo Username is ${{ inputs.username }} and password is ${{ secrets.password }} And token is ${{ secrets.token }}
+          echo "Inputs:"
+          echo "Username: ${{ inputs.username }}"
+          echo "Environment: ${{ inputs.environment }}"
+          echo ""
+          echo "Secrets:"
+          echo "Password: ${{ secrets.password }}"
+          echo "Token: ${{ secrets.token }}"
 
-      - name: Dekh sappe
+      - name: Debug with Env Variables
         run: |
+          echo "Env Variables:"
           echo "Username is $USERNAME"
           echo "Password is $PASSWORD"
           echo "Token is $TOKEN"
@@ -33,6 +41,3 @@ jobs:
           USERNAME: ${{ inputs.username }}
           PASSWORD: ${{ secrets.password }}
           TOKEN: ${{ secrets.token }}
-        
-        
-
