@@ -30,7 +30,7 @@ jobs:
 
       - name: Debug with Env Variables
         env:
-          USERNAME: ${{ vars.username }}
+          USERNAME: ${{ vars.user }}
           PASSWORD: ${{ secrets.password }}
           TOKEN: ${{ secrets.token }}
         run: |
