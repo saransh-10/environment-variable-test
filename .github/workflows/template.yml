@@ -1,16 +1,22 @@
 name: BaseTemplate
 on:
   workflow_call:
-    secrets:
-      password:
-        required: true
-      token:
-        required: true
+    # secrets:
+    #   password:
+    #     required: true
+    #   token:
+    #     required: true
     inputs:
       environment:
         required: true
         type: string
       username:
+        required: true
+        type: string
+      password:
+        required: true
+        type: string
+      token:
         required: true
         type: string
 jobs:
