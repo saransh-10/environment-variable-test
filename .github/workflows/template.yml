@@ -1,0 +1,20 @@
+name: BaseTemplate
+on:
+  workflow_call:
+    secrets:
+      password:
+        required: true
+    inputs:
+      environment:
+        required: true
+        type: string
+jobs:
+  print:
+    name: print username & password
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment}}
+    steps:
+      - name: print string
+        run: |
+          echo username is ${{ vars.username }} password is ${{ secrets.password }}
