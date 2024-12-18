@@ -10,7 +10,7 @@ on:
       environment:
         required: true
         type: string
-      username:
+      user:
         required: true
         type: string
 
