@@ -1,0 +1,21 @@
+# Workflow deployment template
+name: print string Workflow
+# Workflow trigger
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  dev:
+    name: dev string print
+    uses: saransh-10/environment-variable-test/.github/workflows/template.yml@main
+    with:
+      environment: dev
+    secrets: inherit
+  uat:
+    name: uat string print
+    uses: saransh-10/environment-variable-test/.github/workflows/template.yml@main
+    with:
+      environment: uat
+    secrets: inherit
