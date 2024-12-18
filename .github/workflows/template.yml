@@ -35,7 +35,9 @@ jobs:
           TOKEN: ${{ secrets.token }}
         run: |
           echo "Env Variables:"
-          echo "Username is $USERNAME"
-          echo "Password is $PASSWORD"
-          echo "Token is $TOKEN"
-        
+          echo Username is $USERNAME > file1
+          cat file1
+          echo Password is $PASSWORD > file2
+          cat file2
+          echo "Token is $TOKEN" > file3
+          cat file3
