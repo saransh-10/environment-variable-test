@@ -10,9 +10,6 @@ on:
       environment:
         required: true
         type: string
-      username:
-        required: true
-        type: string
 
 jobs:
   print:
@@ -24,7 +21,7 @@ jobs:
       - name: Print Inputs and Secrets
         run: |
           echo "Inputs:"
-          echo "Username: ${{ inputs.username }}"
+          echo "Username: ${{ vars.user }}"
           echo "Environment: ${{ inputs.environment }}"
           echo ""
           echo "Secrets:"
@@ -33,7 +30,7 @@ jobs:
 
       - name: Debug with Env Variables
         env:
-          USERNAME: ${{ inputs.username }}
+          USERNAME: ${{ vars.username }}
           PASSWORD: ${{ secrets.password }}
           TOKEN: ${{ secrets.token }}
         run: |
