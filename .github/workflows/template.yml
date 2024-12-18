@@ -4,6 +4,8 @@ on:
     secrets:
       password:
         required: true
+      token:
+        required: true
     inputs:
       environment:
         required: true
@@ -20,4 +22,4 @@ jobs:
     steps:
       - name: Print String
         run: |
-          echo "Username is ${{ vars.username }} and password is ${{ secrets.password }}"
+          echo "Username is ${{ vars.username }} and password is ${{ secrets.password }} And token is ${{ secrets.token }}"
