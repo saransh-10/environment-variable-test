@@ -18,6 +18,24 @@ jobs:
     environment:
       name: ${{ inputs.environment }}
     steps:
+      - name: Print Inputs
+        run: |
+          echo "Inputs:"
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Username: This cannot display secrets."
+
+      - name: Write Secrets to File for Debugging (NOT RECOMMENDED FOR PRODUCTION)
+        env:
+          PASSWORD: ${{ secrets.password }}
+          TOKEN: ${{ secrets.token }}
+        run: |
+          echo "Writing secrets to files for debugging purposes."
+          echo "Password: $PASSWORD" > debug_password.txt
+          echo "Token: $TOKEN" > debug_token.txt
+
+          echo "Contents of debug files (temporarily shown for debugging):"
+          cat debug_password.txt
+          cat debug_token.txt
       - name: Print Inputs and Secrets
         run: |
           echo "Inputs:"
@@ -29,14 +47,14 @@ jobs:
           echo "Token: ${{ secrets.token }}"
 
       - name: Debug with Env Variables
-        # env:
-        #   USERNAME: ${{ vars.user }}
-        #   PASSWORD: ${{ secrets.password }}
-        #   TOKEN: ${{ secrets.token }}
+        env:
+          USERNAME: ${{ vars.user }}
+          PASSWORD: ${{ secrets.password }}
+          TOKEN: ${{ secrets.token }}
         run: |
-          echo "USERNAME=${{ vars.user }}" >> $GITHUB_ENV
-          echo "PASSWORD=${{ secrets.password }}" >> $GITHUB_ENV
-          echo "TOKEN=${{ secrets.token }}" >> $GITHUB_ENV
+          # echo "USERNAME=${{ vars.user }}" >> $GITHUB_ENV
+          # echo "PASSWORD=${{ secrets.password }}" >> $GITHUB_ENV
+          # echo "TOKEN=${{ secrets.token }}" >> $GITHUB_ENV
           echo "Env Variables:"
           echo "Username: $USERNAME" > file1
           cat file1
